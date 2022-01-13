@@ -77,4 +77,7 @@ function getMovieData(id) {
       console.log(error);
     });
 }
-movieGenre(); // need event listener to start this once button is clicked
+//movieGenre(); // need event listener to start this once button is clicked
+
+// Event listener when user selects a movie genre
+document.getElementById("movie-genre").addEventListener("click", movieGenre);
