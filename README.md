@@ -1,4 +1,4 @@
-# Healthy-pantry-meals
+# Food and a Flick
 
 Given I need a recipe based off items in my pantry
 When I input ingredients into a search field and click on the search button
