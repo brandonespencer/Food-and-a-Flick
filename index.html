@@ -16,7 +16,7 @@
     </header>
         
     <div class="movies">
-        <div class="movie-drop-down">
+        <div class="movie-drop-down dropdown menu" data-dropdown-menu>
             <label for="movie-genres">Choose a Movie Genre:</label>
             <select name="movie-genres" id="movie-genre">
                 <option value="action">Action</option>
@@ -33,7 +33,7 @@
                 <form>
                     <label for="">Ingredient from your Pantry:</label>
                     <input type="text" id="ingredients" placeholder="Ingredient"/>
-                    <button type="submit">Search</button>
+                    <button type="sumbit" class="button">Search</button>
                 </form>
             </div>
     </div>
@@ -45,5 +45,7 @@
     </div>
 
     <script src="./assets/script.js"></script>
+    <!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
