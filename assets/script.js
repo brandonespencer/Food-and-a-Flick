@@ -1,10 +1,7 @@
-// API for getting recipes by ingredients (includes image)
-// https://api.spoonacular.com/recipes/findByIngredients
-
-// API for getting nutritional values bases off recipe ID (get from first API)
-// https://api.spoonacular.com/recipes/{id}/nutritionWidget.json
-
-
+const APP_ID = "5e3b7a77";
+const APP_key = "5abc82d0bdb50534215cd56836a967fd";
+const recipeContainer = document.querySelector(".ingredients-form");
+let ingredient = "";
 
 // Start of Get Movie
 
@@ -55,18 +52,17 @@ function getMovieData(id) {
   })
     .then((response) => response.json())
     .then((data) => {
-        console.log(data); // shows an array
+      console.log(data); // shows an array
 
-        var container = document.querySelector(".movies");
-        var movieTitle = document.createElement("h2");
-        var moviePoster = document.createElement("img");
+      var container = document.querySelector(".movies");
+      var movieTitle = document.createElement("h2");
+      var moviePoster = document.createElement("img");
 
-        movieTitle.textContent = `${data.d[0].l}`;
-        console.log(movieTitle.textContent);
-        moviePoster.src = `${data.d[0].i.imageUrl}`;
+      movieTitle.textContent = `${data.d[0].l}`;
+      console.log(movieTitle.textContent);
+      moviePoster.src = `${data.d[0].i.imageUrl}`;
 
-        container.append(movieTitle, moviePoster);
-
+      container.append(movieTitle, moviePoster);
     })
     // console log shows good return of array
     // Array is d and needed info is as follows
@@ -77,4 +73,54 @@ function getMovieData(id) {
       console.log(error);
     });
 }
-movieGenre(); // need event listener to start this once button is clicked
+//movieGenre(); // need event listener to start this once button is clicked
+
+function dinner() {
+  fetch(
+    `https://api.edamam.com/search?q=${ingredient}&app_id=${APP_ID}&app_key=${APP_key}&imageSize=REGULAR&random=true`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      createHTML(data.hits);
+      console.log(data.hits); // log shows array with all recipe info
+    });
+  function createHTML(neededData) {
+
+    let madeDiv = document.createElement("div");
+    madeDiv.innerHTML = ""  // Created an empty div to hold all created elements
+    neededData
+      .map((result) => {    // This should create a new div for each recipe
+        console.log(result);
+        //  Created elements
+        let foodImage = document.createElement("img");
+        let recipeName = document.createElement("h2");
+        let recipeButton = document.createElement("a");
+        let buttonText = document.createTextNode("Get Recipe");
+        let ingredients = document.createElement("p");
+        //  Create a link (button) in the div that send the user to the recipe page
+        recipeButton.appendChild(buttonText);
+        recipeButton.title = "submit";
+        recipeButton.href = `${result.recipe.url}`;
+        recipeButton.className = "button";
+        // Element values
+        foodImage.src = `${result.recipe.image}`;
+        recipeName.innerHTML = `${result.recipe.label}`;
+        ingredients = `${result.recipe.ingredientLines}`;
+        console.log(ingredients);
+        // Append elements to created div
+        madeDiv.append(foodImage, recipeName, recipeButton, ingredients);
+        // Append made div to HTML container after form
+        recipeContainer.append(madeDiv);
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  recipeContainer.addEventListener("submit", (e) => {
+    e.preventDefault();
+    ingredient = e.target.querySelector("input").value;
+    dinner();
+  });
+}
