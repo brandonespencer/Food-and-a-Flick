@@ -11,26 +11,41 @@
 
 </head>
 <body>
-<div class="movies"></div>
+    <header class="hero">
+        <h1 class="page-title">Moive & a Flick!</h1>
+    </header>
+        
+    <div class="movies">
+        <div class="movie-drop-down dropdown menu" data-dropdown-menu>
+            <label for="movie-genres">Choose a Movie Genre:</label>
+            <select name="movie-genres" id="movie-genre">
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="drama">Drama</option>
+                <option value="fantasy">Fantasy</option>
+            </select>
+        </div>
+    </div>
 
-<div class="ingredients-form">
-    <form>
-        <label for="">Ingredient from your Pantry:</label>
-        <input type="text" id="ingredients" placeholder="Ingredient"/>
-        <button type="submit">Search</button>
-    </form>
-</div>
+    <div class="recipe-generator">
+        <h3 class="section-title">Recipe Generator</h3>
+            <div class="ingredients-form">
+                <form>
+                    <label for="">Ingredient from your Pantry:</label>
+                    <input type="text" id="ingredients" placeholder="Ingredient"/>
+                    <button type="sumbit" class="button">Search</button>
+                </form>
+            </div>
+    </div>
 
-<div class="movie-drop-down">
-    <label for="movie-genres">Choose a Movie Genre:</label>
-    <select name="movie-genres" id="movie-genre">
-        <option value="action">Action</option>
-        <option value="adventure">Adventure</option>
-        <option value="drama">Drama</option>
-        <option value="fantasy">fantasy</option>
-    </select>
-</div>
+    <div class="recipe-image"></div>
 
-<script src="./assets/script.js"></script>
+    <div class="recipe">
+        <h3 class="section-title">Recipe</h3>
+    </div>
+
+    <script src="./assets/script.js"></script>
+    <!-- Compressed JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
