@@ -6,7 +6,7 @@ let ingredient = "";
 // Start of Get Movie
 
 function movieGenre() {
-  let genre = "adventure"; // this value will need to be fed in from a select input in HTML
+  let genre = "action"; // this value will need to be fed in from a select input in HTML
   // will also need a button and event listener to run function
   // options need to be "Action", "Adventure", "Drama", "Fantasy"
 
@@ -26,19 +26,25 @@ function movieGenre() {
     .then((response) => response.json())
     .then((data) => {
       const list = data;
+      console.log(data);
 
-      var title = list[Math.floor(Math.random() * list.length)];
-      console.log(title); // gives a string response of /title/tt1677720/
+      // var title = list[Math.floor(Math.random() * list.length)];
+      // console.log(title); // gives a string response of /title/tt1677720/
       // Need to extract the tt value to feed into the next API call
-
-      var titleId = title.split("/")[2]; // Gives the needed value to pass in
+      const shuffled = list.sort(() => 0.5 - Math.random());
+      let selected = shuffled.slice(0, 10);
+      console.log(selected);
+      selected.forEach(titleString => {
+        let titleId = titleString.split("/")[2];
+      // var titleId = (selected.split("/")[2]); // Gives the needed value to pass in
+      console.log(titleId);
       getMovieData(titleId);
     })
 
     .catch((error) => {
       console.log(error);
     });
-}
+});
 // Second fetch call will use returned tile value and provide needed data including image
 // Will need to use a method to randomize or step through the array of titles
 function getMovieData(id) {
@@ -72,8 +78,10 @@ function getMovieData(id) {
     .catch((error) => {
       console.log(error);
     });
-}
+}}
 //movieGenre(); // need event listener to start this once button is clicked
+
+
 
 function dinner() {
   fetch(
@@ -113,10 +121,11 @@ function dinner() {
         recipeContainer.append(madeDiv);
       })
 
-      .catch((error) => {
-        console.log(error);
-      });
+      // .catch((error) => {
+      //   console.log(error);
+      // });
   }
+
 
   recipeContainer.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -165,3 +174,8 @@ function retrieveSearch() {
     listDiv.insertAdjacentHTML("afterbegin", addedItem);
   });
 }
+
+};
+// movieGenre();
+// dinner();
+
