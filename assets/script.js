@@ -85,11 +85,11 @@ function dinner() {
       console.log(data.hits); // log shows array with all recipe info
     });
   function createHTML(neededData) {
-
     let madeDiv = document.createElement("div");
-    madeDiv.innerHTML = ""  // Created an empty div to hold all created elements
+    madeDiv.innerHTML = ""; // Created an empty div to hold all created elements
     neededData
-      .map((result) => {    // This should create a new div for each recipe
+      .map((result) => {
+        // This should create a new div for each recipe
         console.log(result);
         //  Created elements
         let foodImage = document.createElement("img");
@@ -122,5 +122,46 @@ function dinner() {
     e.preventDefault();
     ingredient = e.target.querySelector("input").value;
     dinner();
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  Need retrieveSearch() to be called on page load
+//  Need saveSearch() to be called on the ingredient search event listener
+
+let pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
+function saveSearch() {
+  let searchedIngredient = document.querySelector("#ingredients").value;
+  pastSearches.push(searchedIngredient);
+  pastSearches.slice(0, 5);
+  localStorage.setItem("pastSearches", JSON.stringify(pastSearches));
+}
+
+function retrieveSearch() {
+  let storedSearches = JSON.parse(localStorage.getItem("pastSearches"));
+  storedSearches.forEach((result) => {
+    let listDiv = document.querySelector(".listHolder"); // Need to add in a div with this class to HTML
+    let addedItem = `<li class="resultList">${result}</li>`;
+
+    listDiv.insertAdjacentHTML("afterbegin", addedItem);
   });
 }
