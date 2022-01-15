@@ -14,35 +14,35 @@
     <header class="hero">
         <h1 class="page-title">Moive & a Flick!</h1>
     </header>
+
+        <section class="grid-x grid-padding-x align-justify">
         
-    <div class="movies">
-        <div class="movie-drop-down dropdown menu" data-dropdown-menu>
-            <label for="movie-genres">Choose a Movie Genre:</label>
-            <select name="movie-genres" id="movie-genre">
-                <option value="action">Action</option>
-                <option value="adventure">Adventure</option>
-                <option value="drama">Drama</option>
-                <option value="fantasy">Fantasy</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="recipe-generator">
-        <h3 class="section-title">Recipe Generator</h3>
-            <div class="ingredients-form">
-                <form>
-                    <label for="">Ingredient from your Pantry:</label>
-                    <input type="text" id="ingredients" placeholder="Main Ingredient"/>
-                    <button type="submit" class="button" id="searchButton">Search</button>
-                </form>
+            <div class="cell medium-6">
+                <div class="movie-drop-down dropdown menu cell" data-dropdown-menu>
+                    <label for="movie-genres">Choose a Movie Genre:</label>
+                    <select name="movie-genres" id="movie-genre">
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="drama">Drama</option>
+                        <option value="fantasy">Fantasy</option>
+                    </select>
+                </div>
+                <div class="movies grid-x grid-padding-x align-justify"></div>
             </div>
-    </div>
 
-    <div class="recipe-image"></div>
+            <div class="recipe-generator cell medium-6">
+                <h3 class="section-title cell">Recipe Generator</h3>
+                    <div class="ingredients-form">
+                        <form class="cell">
+                            <label for="">Ingredient from your Pantry:</label>
+                            <input type="text" id="ingredients" placeholder="Main Ingredient"/>
+                            <button type="submit" class="button" id="searchButton">Search</button>
+                        </form>
+                        <div class="listHolder cell"></div>
+                    </div>
+            </div>
+        </section>
 
-    <div class="recipe">
-        <h3 class="section-title">Recipe</h3>
-    </div>
 
     <script src="./assets/script.js"></script>
     <!-- Compressed JavaScript -->
