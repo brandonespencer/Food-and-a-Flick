@@ -164,6 +164,6 @@ function retrieveSearch() {
 }
 
 };
-movieGenre();
-dinner();
+// movieGenre();
+// dinner();
 

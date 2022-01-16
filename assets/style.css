@@ -1,2 +1,29 @@
 /* See https://get.foundation/sites/docs/index.html for Foundation
 use info */
+* {
+    font-family: 'Anton', sans-serif;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-family: 'Anton', sans-serif;
+
+}
+
+.hero {
+    width: 100vw;
+    height: 10rem;
+    background-image: url(./images/popcorn.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    
+}
+.hero h1 {
+    color: white;
+    position: absolute;
+    right: 5rem;
+    font-family: 'Anton', sans-serif;
+
+}
