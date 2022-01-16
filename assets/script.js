@@ -6,16 +6,19 @@ const APP_key = "5abc82d0bdb50534215cd56836a967fd";
 const recipeContainer = document.querySelector(".ingredients-form");
 let ingredient = "";
 let genre = "";
+let id = "";
+
 
 function genreSelect() {
   let selectId = document.getElementById("movie-genre");
   if(selectId.selectedIndex > 0){
     let genre = selectId.value;
+    
     movieGenre(genre);
     console.log(selectId.value);
   }
 };
-document.getElementById("movie-genre").addEventListener("click", genreSelect);
+document.getElementById("movie-genre").addEventListener("change", genreSelect);
 
 // Start of Get Movie
 
@@ -58,24 +61,26 @@ function getMovieData(id) {
       "x-rapidapi-key": "35d3a3dcbbmsh051f4f9ca050ca4p1fd323jsn0e5e19e852a3",
     },
   })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data); // shows an array with all movie data
-
-      // Selects the div to append to and creates title and image elements
-      var container = document.querySelector(".movies");
-      var movieTitle = document.createElement("h2");
-      var moviePoster = document.createElement("img");
-      let movieCard = document.createElement("div");
-      movieCard.className = "card";
-      movieCard.style.width = "600px";
-
-      // Assigns specified data from the array to the created elements
-      movieTitle.textContent = `${data.d[0].l}`;
-      moviePoster.src = `${data.d[0].i.imageUrl}`;
-
-      // Adds the title and image to the selected Div
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data); // shows an array with all movie data
+    
+    // Selects the div to append to and creates title and image elements
+    var container = document.querySelector(".movies");
+    var movieTitle = document.createElement("h2");
+    var moviePoster = document.createElement("img");
+    let movieCard = document.createElement("div");
+    movieCard.className = "card";
+    movieCard.style.width = "600px";
+    
+    // Assigns specified data from the array to the created elements
+    movieTitle.textContent = `${data.d[0].l}`;
+    moviePoster.src = `${data.d[0].i.imageUrl}`;
+    
+      movieCard.innerHTML = "";
+    // Adds the title and image to the selected Div
       movieCard.append(movieTitle, moviePoster);
+      container.innerHTML = "";
       container.append(movieCard);
     })
     // .catch((error) => {
