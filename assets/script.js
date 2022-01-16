@@ -7,24 +7,30 @@ const recipeContainer = document.querySelector(".ingredients-form");
 let ingredient = "";
 let genre = "";
 
+function genreSelect() {
+  let selectId = document.getElementById("movie-genre");
+  if(selectId.selectedIndex > 0){
+    let genre = selectId.value;
+    movieGenre(genre);
+    console.log(selectId.value);
+  }
+};
+document.getElementById("movie-genre").addEventListener("click", genreSelect);
+
 // Start of Get Movie
 
-function movieGenre() {
+function movieGenre(genre) {
 
   // Fetch to get 100 most popular movies by genre
   // Return is an array of movie title values
-  fetch(
-    `https://imdb8.p.rapidapi.com/title/get-popular-movies-by-genre?genre=%2Fchart%2Fpopular%2Fgenre%2F${genre}`,
-    {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": "imdb8.p.rapidapi.com",
-        // API key allows for 500 calls per month, then stops working
-        "x-rapidapi-key": "518e483edbmsh0bb6faee44ded05p1deebajsnc0bbf449acd3",
-      },
+  fetch(`https://imdb8.p.rapidapi.com/title/get-popular-movies-by-genre?genre=%2Fchart%2Fpopular%2Fgenre%2F${genre}`, {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": "imdb8.p.rapidapi.com",
+      "x-rapidapi-key": "35d3a3dcbbmsh051f4f9ca050ca4p1fd323jsn0e5e19e852a3"
     }
-  )
-    .then((response) => response.json())
+  })
+  .then((response) => response.json())
     .then((data) => {
       const list = data;
       console.log(data);
@@ -49,7 +55,7 @@ function getMovieData(id) {
     headers: {
       "x-rapidapi-host": "imdb8.p.rapidapi.com",
       // API key allows for 500 calls per month, then stops working
-      "x-rapidapi-key": "518e483edbmsh0bb6faee44ded05p1deebajsnc0bbf449acd3",
+      "x-rapidapi-key": "35d3a3dcbbmsh051f4f9ca050ca4p1fd323jsn0e5e19e852a3",
     },
   })
     .then((response) => response.json())
@@ -164,6 +170,8 @@ function retrieveSearch() {
 }
 
 };
+
+
 // movieGenre();
 // dinner();
 
