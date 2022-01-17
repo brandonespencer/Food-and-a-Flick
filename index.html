@@ -25,12 +25,17 @@
             <div class="recipe-generator cell medium-6">
                 <h3 class="section-title cell">Random Food by Ingredient</h3>
                 <div class="ingredients-form">
-                    <form class="cell">
-                        <label for="">Ingredient from your Pantry:</label>
+                    <form id="form" class="cell">
+                        <label>Ingredient from your Pantry:</label>
                         <input type="text" id="ingredients" placeholder="Main Ingredient"/>
                         <button type="submit" class="button" id="searchButton">Search</button>
                     </form>
-                    <div class="listHolder cell"></div>
+                    <div class="saved-searches">
+                        <h4>Previous Searches</h4>
+                        <ul id="listHolder" class="listHolder" style="list-style-type:none;">
+
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="cell medium-6">

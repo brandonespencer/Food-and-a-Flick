@@ -4,9 +4,11 @@ const APP_key = "5abc82d0bdb50534215cd56836a967fd";
 
 
 const recipeContainer = document.querySelector(".ingredients-form");
-let ingredient = "";
+let ingredients = document.querySelector(".ingredients");
 let genre = "";
 let id = "";
+let listDiv = document.getElementById("listHolder"); 
+
 
 
 function genreSelect() {
@@ -90,7 +92,15 @@ function getMovieData(id) {
 
 // Start of Dinner Function
 
-function dinner() {
+document.getElementById("form").addEventListener("submit", dinner);
+
+
+function dinner(e) {
+  e.preventDefault();
+  const form = document.getElementById("form");
+  let formValue = document.getElementById("ingredients")
+  let ingredient = formValue.value;
+  console.log(formValue.value);
   fetch(
     `https://api.edamam.com/search?q=${ingredient}&app_id=${APP_ID}&app_key=${APP_key}&imageSize=REGULAR&random=true`
   )
@@ -116,7 +126,7 @@ function dinner() {
         let recipeButton = document.createElement("a");
         let buttonText = document.createTextNode("Get Recipe");
         let ingredients = document.createElement("p");
-        let linebreak = document.createElement("br");
+        let lineBreak = document.createElement("br");
         madeDiv.className = "grid-x grid-padding-x align-justify";
         
         //  Create a link (button) in the div that send the user to the recipe page
@@ -132,7 +142,9 @@ function dinner() {
         console.log(ingredients);
 
         // Append elements to created div
-        madeCard.append(foodImage, recipeName, ingredients, linebreak, recipeButton);
+        madeCard.innerHTML = "";
+        madeCard.append(foodImage, recipeName, ingredients, lineBreak, recipeButton);
+        // madeDiv.innerHTML = "";
         madeDiv.append(madeCard);
 
         // Append made div to HTML container after form
@@ -143,6 +155,11 @@ function dinner() {
       //   console.log(error);
       // });
   }
+  saveSearch();
+  listDiv.innerHTML = "";
+
+  retrieveSearch();
+};
 
 // Start of Local Storage - Saved Searches
 
@@ -152,30 +169,36 @@ function dinner() {
 let pastSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
 // adds user supplied value from input to the pastSearches array
 function saveSearch() {
-  let searchedIngredient = document.querySelector("#ingredients").value;
+  let formValue = document.getElementById("ingredients")
+  let ingredient = formValue.value.trim();
+
+  let searchedIngredient = ingredient;
   pastSearches.push(searchedIngredient);
   // Keeps the saved results to the last 5
-  pastSearches.slice(0, 5);
+  // pastSearches.slice(0, 5);
   // Pass the 5 results to local storage
   localStorage.setItem("pastSearches", JSON.stringify(pastSearches));
-}
+};
 
 //  Need retrieveSearch() to be called on page load
 function retrieveSearch() {
   // gets saved searches from local storage
-  let storedSearches = JSON.parse(localStorage.getItem("pastSearches"));
+  let storedSearches = JSON.parse(localStorage.getItem("pastSearches")) || [];
+  console.log(storedSearches);
+  // storedSearches.slice(-5);
+  // console.log(storedSearches.slice(-5));
   // For each of the saved searches obtained from local storage, a list item is created
   // and added to Ul in list holder 
-  storedSearches.forEach((result) => {
-    let listDiv = document.querySelector(".listHolder"); // Need to add in a div with this class to HTML
-    let addedItem = `<li class="resultList">${result}</li>`;
-
-    listDiv.insertAdjacentHTML("afterbegin", addedItem);
+  storedSearches.slice(-5).forEach((result) => {
+    let addedItem = document.createElement("li");
+    
+    addedItem.innerHTML = result;
+    console.log(addedItem);
+    listDiv.append(addedItem);
   });
-}
-
 };
 
+retrieveSearch();
 
 // movieGenre();
 // dinner();
