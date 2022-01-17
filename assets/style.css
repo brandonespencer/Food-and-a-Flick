@@ -7,23 +7,47 @@ use info */
 .section-title {
     font-size: 2rem;
     font-family: 'Anton', sans-serif;
-
+    color: white;
 }
 
 .hero {
     width: 100vw;
     height: 10rem;
+    border: transparent 40%;
+    max-height: fit-content;
     background-image: url(./images/popcorn.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     position: relative;
+    transform-style: flat;
     
 }
+
+
 .hero h1 {
     color: white;
     position: absolute;
-    right: 5rem;
+    right: 1rem;
     font-family: 'Anton', sans-serif;
 
+    
 }
+
+
+label {
+color: white;
+
+}
+
+
+
+
+body {
+  
+    color: white;
+    background-color: #303030;
+    background-image:;
+    border: transparent 10%;
+
+ }
