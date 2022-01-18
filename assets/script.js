@@ -167,6 +167,71 @@ function dinner(e) {
   retrieveSearch();
 }
 
+listDiv.addEventListener("click", seconds);
+
+function seconds(e) {
+  e.preventDefault();
+  recipeHold.innerHTML = "";
+  const form = document.getElementById("form");
+  let ingredient = e.target.innerHTML;
+  
+  console.log(ingredient);
+  fetch(
+    `https://api.edamam.com/search?q=${ingredient}&app_id=${APP_ID}&app_key=${APP_key}&imageSize=REGULAR&random=true`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      createHTML(data.hits);
+      // console.log(data.hits); // log shows array with all recipe info for 10 results
+    });
+  function createHTML(neededData) {
+
+    neededData.map((result) => {
+        console.log(result); // Console log shows object with all needed data
+
+        //  Created elements
+        let madeCard = document.createElement("div");
+        madeCard.className = "card";
+        madeCard.style.width = "300px";
+        let foodImage = document.createElement("img");
+        let recipeName = document.createElement("h2");
+        let recipeButton = document.createElement("a");
+        let buttonText = document.createTextNode("Get Recipe");
+        let ingredients = document.createElement("p");
+        let lineBreak = document.createElement("br");
+
+        //  Create a link (button) in the div that send the user to the recipe page
+        recipeButton.appendChild(buttonText);
+        recipeButton.title = "submit";
+        recipeButton.href = `${result.recipe.url}`;
+        recipeButton.className = "button";
+
+        // Element values
+        foodImage.src = `${result.recipe.image}`;
+        recipeName.innerHTML = `${result.recipe.label}`;
+        ingredients = `${result.recipe.ingredientLines}`;
+        // console.log(ingredients);
+
+        // Append elements to created div
+        madeCard.innerHTML = "";
+        madeCard.append(
+          foodImage,
+          recipeName,
+          ingredients,
+          lineBreak,
+          recipeButton
+          );
+        recipeHold.append(madeCard);
+        // Append made div to HTML container after form
+        recipeContainer.appendChild(recipeHold);
+      });
+
+    // .catch((error) => {
+    //   console.log(error);
+    // });
+  }
+}
+
 // Start of Local Storage - Saved Searches
 
 // Loads past searches or an empty array
@@ -190,6 +255,7 @@ function retrieveSearch() {
     let addedItem = document.createElement("li");
 
     addedItem.innerHTML = result;
+    addedItem.style.cursor="pointer";
     // console.log(addedItem);
     listDiv.append(addedItem);
   });
