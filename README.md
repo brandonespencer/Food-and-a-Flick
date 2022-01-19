@@ -1,18 +1,18 @@
-# Food and a Flick
+# Food and a Flick!
 
 ## Description:
 ### Food and a Flick is a website application that provides the user recipe ideas and movie recommendations designed to be used when the user can't decide!
 
 ## Application Requirements:
-### Must be on GitHub
-### Must be interactive (accept and respond to user input)
-### Use at least 2 server side APIs
-### Does not use alerts, confirms or prompts (uses modals)
-### Use client-side storage to store persistent data
-### Be responsive
-### Have a polished UI
-### Have a clean repository that meets quality coding standards
-### Have a quality README 
+### - Must be on GitHub
+### - Must be interactive (accept and respond to user input)
+### - Use at least 2 server side APIs
+### - Does not use alerts, confirms or prompts (uses modals)
+### - Use client-side storage to store persistent data
+### - Be responsive
+### - Have a polished UI
+### - Have a clean repository that meets quality coding standards
+### - Have a quality README 
 
 ## User Story:
 ### AS A hungry movie lover
@@ -38,11 +38,7 @@
 ### Movie API (from RapidAPI): https://rapidapi.com/
 ### Foundation: https://get.foundation/sites/docs/javascript.html
 
-## URL: ttps://brandonespencer.github.io/Food-and-a-Flick/
+## URL: https://brandonespencer.github.io/Food-and-a-Flick/
 ## GitHub: https://github.com/brandonespencer/Food-and-a-Flick
 
-## Screenshot: ![Screenshot](./Screenshot.jpg)
-
-
-
-
+## Screenshot: ![Screenshot](https://user-images.githubusercontent.com/93881224/150044668-7762bcec-73a9-472a-87ec-3ec4daf9170e.JPG)
