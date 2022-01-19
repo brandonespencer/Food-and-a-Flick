@@ -1,7 +1,7 @@
 /* See https://get.foundation/sites/docs/index.html for Foundation
 use info */
-@media all and (max-width: 500px) 
-{
+/* @media all and (max-width: 1000px)  */
+/* { */
     body {
   
         color: white;
@@ -10,7 +10,7 @@ use info */
         border: transparent 10%;
     
      }
-}
+/* } */
 
 * {
     font-family: 'Anton', sans-serif;
