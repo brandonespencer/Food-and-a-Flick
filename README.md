@@ -38,10 +38,10 @@
 ### Movie API (from RapidAPI): https://rapidapi.com/
 ### Foundation: https://get.foundation/sites/docs/javascript.html
 
-## URL: ttps://brandonespencer.github.io/Food-and-a-Flick/
+## URL: https://brandonespencer.github.io/Food-and-a-Flick/
 ## GitHub: https://github.com/brandonespencer/Food-and-a-Flick
 
-## Screenshot: ![Screenshot](./Screenshot.jpg)
+## Screenshot: ![Screenshot](https://user-images.githubusercontent.com/93881224/150044668-7762bcec-73a9-472a-87ec-3ec4daf9170e.JPG)
 
 
 
