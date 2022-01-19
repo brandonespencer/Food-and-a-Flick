@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food & A Flick</title>
+    <!-- cdn to foundation (bootstrap alternative) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+    <!-- google font used -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/foundation.css">
+</head>
+<body>
+    <header class="hero">
+        <h1 class="page-title">Food & A Flick!</h1>
+         <!-- Trigger/Open The Modal -->
+    <button id="myBtn" class="button">About us</button>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Hello!! welcome to Food & a Flick. Here to help you find the perfect meal and movie for you any occasion. Lets Click on the boxes to get started...</p>
+      
+        <div class="color-Overlay"></div>
+    </header>
+
+    <br>
+
+
+
+        <section class="grid-x grid-padding-x align-justify">    
+            <div class="recipe-generator cell medium-6">
+                <h3 class="section-title cell">Random Food by Ingredient</h3>
+                <div class="ingredients-form">
+                    <form id="form" class="cell">
+                        <label>Ingredient from your Pantry:</label>
+                        <input type="text" id="ingredients" placeholder="Main Ingredient"/>
+                        <button type="submit" class="button" id="searchButton">Search</button>
+                    </form>
+                    <div class="saved-searches">
+                        <h4>Previous Searches</h4>
+                        <ul id="listHolder" class="listHolder" style="list-style-type:none;">
+
+                        </ul>
+                    </div>
+                    <div id="recipe-hold" class="grid-x grid-padding-x align-justify">
+
+                    </div>
+                </div>
+            </div>
+            <div class="cell medium-6">
+                <h3 class="section-title cell">Random Flick by Genre</h3>
+                <div class="movie-drop-down dropdown menu cell" data-dropdown-menu>
+                    <label for="movie-genres">Choose a Movie Genre:</label>
+                    <select name="movie-genres" id="movie-genre">
+                        <option value="" disabled selected>Choose A Genre</option>
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="drama">Drama</option>
+                        <option value="fantasy">Fantasy</option>
+                    </select>
+                </div>
+                <div class="movies grid-x grid-padding-x align-justify">
+                </div>
+            </div>
+        </section>
+
+<br>
+<br>
+<br>
+        
+
+<!--  footer -->
+<footer>
+
+      <div class="copyright">
+        <p>© 2022 All Rights Reserved. Food & A flick</p>
+        </div>
+</footer>
+<!-- end footer -->
+
+
+    <script src="./assets/script.js"></script>
+    <!-- Compressed JavaScript -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script> -->
+</body>
+</html>
