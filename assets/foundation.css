@@ -6,7 +6,7 @@ use info */
   
         color: white;
         background-color: #303030;
-        background-image:;
+        background-image: ;
         border: transparent 10%;
     
      }
@@ -27,7 +27,7 @@ use info */
     height: 10rem;
     border: transparent 40%;
     max-height: fit-content;
-    background-image: url(./images/popcorn.jpg);
+    background-image: url(images/popcorn.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -45,7 +45,7 @@ use info */
 
 
 }
-  @media (min-width 100px){ 
+  @media (min-width: 100px){ 
   
   .button {
 
@@ -55,7 +55,7 @@ use info */
     padding:10px 25px;
     color: rgb(0, 0, 0);
     border: 0;
-    width: 7%;
+    width: 20%;
  }
 }
 
@@ -97,7 +97,7 @@ use info */
     color: rgb(0, 0, 0);
     border: 0;
     width: 20%; 
-    height: 22%;
+    height: 50%;
   }
   
 
@@ -125,11 +125,5 @@ color: white;
 
 
 
-body {
-  
-    color: white;
-    background-color: #303030;
-    background-image:;
-    border: transparent 10%;
-
- }
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; } */
